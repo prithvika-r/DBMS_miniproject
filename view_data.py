@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import ttk
 from db_config import get_connection
 
-# Set global style for Treeview fonts
 def configure_treeview_style():
     style = ttk.Style()
     style.configure("Treeview.Heading", font=("Arial", 14, "bold"))
