@@ -76,13 +76,26 @@ def update_medicine_ui():
 
     tk.Button(win, text="Update", font=font_button, command=update_medicine).grid(row=len(labels), columnspan=2, pady=10)
 
-
 def delete_medicine_ui():
     def delete_medicine():
-        medicine_id = int(medicine_id_entry.get())
+        try:
+            medicine_id = int(medicine_id_entry.get())
+        except ValueError:
+            messagebox.showerror("Invalid Input", "Please enter a valid Medicine ID.")
+            return
+
         conn = get_connection()
         cursor = conn.cursor()
-        query = "delete from medicine where medicine_id = %s"
+
+        # Check for related bill_items
+        cursor.execute("SELECT COUNT(*) FROM bill_items WHERE medicine_id = %s", (medicine_id,))
+        if cursor.fetchone()[0] > 0:
+            messagebox.showerror("Error", "Cannot delete medicine. It is linked to existing bills.")
+            conn.close()
+            return
+
+        # Proceed to delete
+        query = "DELETE FROM medicine WHERE medicine_id = %s"
         cursor.execute(query, (medicine_id,))
         conn.commit()
         conn.close()
@@ -91,6 +104,10 @@ def delete_medicine_ui():
 
     win = tk.Toplevel()
     win.title("Delete Medicine")
+
+    font_label = ("Arial", 12)
+    font_entry = ("Arial", 12)
+    font_button = ("Arial", 12, "bold")
 
     tk.Label(win, text="Medicine ID", font=font_label).grid(row=0, column=0, padx=10, pady=5)
 
