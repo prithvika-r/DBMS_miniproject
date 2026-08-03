@@ -77,3 +77,37 @@ The project demonstrates database design concepts such as **tables, views, trigg
 ---
 
 ## 📁 Project Structure
+medical_shop/
+│
+├── db_config.py # MySQL database connection setup
+├── create_tables.sql # Database schema, views, and triggers
+├── main.py # Main Tkinter application launcher
+├── medicine_mgmt.py # Medicine management module
+├── customer_mgmt.py # Customer management module
+├── billing.py # Billing operations
+├── view_data.py # View stock and billing details
+└── README.md # Project documentation
+
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Install required dependency
+
+```bash
+pip install mysql-connector-python
+2. Setup Database
+Open MySQL
+Execute:
+create_tables.sql
+3. Configure Database Connection
+
+Update db_config.py with your MySQL credentials:
+
+host="localhost"
+user="your_username"
+password="your_password"
+database="medical_shop"
+4. Run Application
+python main.py
