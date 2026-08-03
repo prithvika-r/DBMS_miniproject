@@ -1,52 +1,79 @@
-🏥 Medical Shop Management System
-A mini project built using Python (Tkinter) and MySQL to manage a medical shop's operations including customer management, medicine inventory, billing, and viewing stock or bill details.
+# 🏥 Medical Shop Management System
 
-📁 Project Structure
+A desktop-based **Medical Shop Management System** developed using **Python Tkinter and MySQL** to automate pharmacy operations including medicine inventory management, customer management, billing, and stock tracking.
 
-medical_shop/
-├── db_config.py            # MySQL connection setup
-├── create_tables.sql       # SQL for tables, views, triggers, assertions
-├── main.py                 # Main GUI launcher
-├── medicine_mgmt.py        # Add medicine functionality
-├── customer_mgmt.py        # Add customer functionality
-├── billing.py              # Create bill functionality
-├── view_data.py            # View stock and bills
-└── README.md               # Project documentation
+The project demonstrates database design concepts such as **tables, views, triggers, constraints, and CRUD operations**.
 
-🛠 Technologies Used
-Frontend: Python Tkinter
-Backend: MySQL
-Connector: mysql-connector-python
+---
 
-🗃 Database Features
-Tables: Medicine, Customer, Bill, Bill_Items
+## 📌 Features
 
-Views:
-Available_Medicines – shows non-expired medicines in stock
-Bill_Details – shows complete bill breakdown
+### 💊 Medicine Management
+- Add and manage medicine details
+- Track medicine expiry dates
+- Maintain available stock information
+- Prevent billing of expired medicines
 
-Triggers:
-Prevent billing expired medicine
-Auto-update stock after billing
-Assertions (simulated):
-No negative stock
-Positive quantity on billing
+### 👥 Customer Management
+- Add and manage customer information
+- Store customer contact details
+- Maintain customer billing records
 
-✅ Features
-Add new medicines and track expiry
-Manage customers with contact details
-Generate bills and auto-update medicine stock
-View current stock and detailed bills
-Validations via SQL constraints and triggers
+### 🧾 Billing System
+- Generate customer bills
+- Automatically update medicine stock after billing
+- Validate medicine availability before billing
 
-⚙️ Setup Instructions
-Install Python dependencies:
-pip install mysql-connector-python
+### 📊 Data Viewing
+- View available medicines
+- View detailed billing information
+- Monitor inventory status
 
-Create database and tables:
-Open MySQL
-Run create_tables.sql
-Update db_config.py: Replace with your MySQL username/password.
+---
 
-Run the app:
-python main.py
+## 🛠 Technologies Used
+
+### Frontend
+- Python Tkinter
+
+### Backend Database
+- MySQL
+
+### Python Libraries
+- mysql-connector-python
+
+---
+
+## 🗃 Database Design
+
+### Tables
+- **Medicine**
+  - Stores medicine details, price, quantity, expiry date
+
+- **Customer**
+  - Stores customer information
+
+- **Bill**
+  - Stores billing details
+
+- **Bill_Items**
+  - Stores individual medicines included in each bill
+
+### Views
+- **Available_Medicines**
+  - Displays medicines that are not expired and currently available in stock
+
+- **Bill_Details**
+  - Provides complete bill breakdown including customer and medicine details
+
+### Triggers
+- Prevents billing of expired medicines
+- Automatically updates stock after successful billing
+
+### Constraints
+- Prevents negative stock values
+- Ensures positive billing quantities
+
+---
+
+## 📁 Project Structure
