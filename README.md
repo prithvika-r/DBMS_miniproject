@@ -77,6 +77,8 @@ The project demonstrates database design concepts such as **tables, views, trigg
 ---
 
 ## 📁 Project Structure
+
+
 medical_shop/
 │
 ├── db_config.py # MySQL database connection setup
